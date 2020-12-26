@@ -95,9 +95,9 @@ public class Core {
             String newFilePath = file.getParent() + '/' + newFileName;
             File newFile = new File(newFilePath);
             if (newFile.exists())
-                throw new InvalidFileException("INFO.fsplitinfo", 0x00000007);
+                throw new InvalidFileException(newFileName, 0x00000007);
             if (!newFile.createNewFile())
-                throw new InvalidFileException("INFO.fsplitinfo", 0x00000007);
+                throw new InvalidFileException(newFileName, 0x00000007);
 
             FileOutputStream outputStream = new FileOutputStream(newFile);
 

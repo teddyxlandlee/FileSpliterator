@@ -38,7 +38,7 @@ fun main(args: Array<String>) {
 }
 
 fun help() {
-    println("Usage: java -jar file-spliterator-${version}.jar <encode|decode> <filename> [args]\n" +
+    println("Usage: java -jar FileSpliterator.jar <encode|decode> <filename> [args]\n" +
             "encode: arg: filename\n" +
             "decoee: arg: directory name\n" +
             "more args:\n [max_one_file_size] default 99.4MB\n" +
