@@ -1,7 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="2e837d0e-f64d-441f-982b-ceea8ceb799a" name="Default Changelist" comment="" />
+    <list default="true" id="2e837d0e-f64d-441f-982b-ceea8ceb799a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/util/ByteHelper.kt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/util/Emaps.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/util/InvalidFileException.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileSpliterator.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/FileSpliterator.ipr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FileSpliterator.iws" beforeDir="false" afterPath="$PROJECT_DIR$/FileSpliterator.iws" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/CodecStatus.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/CodecStatus.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/Core.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/main.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/version.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/version.kt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,9 +21,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Kotlin File" />
         <option value="Kotlin Enum" />
+        <option value="Kotlin File" />
         <option value="Class" />
+        <option value="Kotlin Class" />
       </list>
     </option>
   </component>
@@ -28,6 +40,89 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
+  <component name="RunManager" selected="Application.nul">
+    <configuration default="true" type="JarApplication">
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2" />
+    </configuration>
+    <configuration name="Example" type="JetRunConfigurationType">
+      <module name="FileSpliterator" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="io.github.teddyxlandlee.nios.filesplit.MainKt" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="FileSpliterator" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="io.github.teddyxlandlee.nios.filesplit.MainKt" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="nul" type="JetRunConfigurationType">
+      <module name="FileSpliterator" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="io.github.teddyxlandlee.nios.filesplit.MainKt" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="FileSpliterator" />
+      <option name="filePath" value="" />
+      <option name="vmParameters" value="" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" value="" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" value="" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" value="" />
+      <option name="vmParameters" value="" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" value="" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" value="" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.nul" />
+      <item itemvalue="Application.Example" />
+    </list>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -38,5 +133,17 @@
       <updated>1608877305551</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
