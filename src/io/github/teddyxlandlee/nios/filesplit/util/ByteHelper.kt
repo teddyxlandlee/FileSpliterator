@@ -13,10 +13,17 @@ fun fromInt(i: Int): ByteArray {
 fun toInt(bs: ByteArray): Int {
     if (bs.size < 4)
         return -1
-    return  bs[0].toInt().shl(24) +
-            bs[1].toInt().shl(16) +
-            bs[2].toInt().shl(8) +
-            bs[3].toInt()
+    val intArray = IntArray(4)
+    for (i in 0..3) {
+        if (bs[i] < 0)
+            intArray[i] = 256 + bs[i]
+        else
+            intArray[i] = bs[i].toInt()
+    }
+    return  intArray[0].shl(24) +
+            intArray[1].shl(16) +
+            intArray[2].shl(8)  +
+            intArray[3]
 }
 
 fun concat(vararg byteArrays: ByteArray): ByteArray {

@@ -2,16 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2e837d0e-f64d-441f-982b-ceea8ceb799a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/util/ByteHelper.kt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/util/Emaps.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/util/InvalidFileException.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileSpliterator.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/FileSpliterator.ipr" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/FileSpliterator.iws" beforeDir="false" afterPath="$PROJECT_DIR$/FileSpliterator.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/CodecStatus.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/CodecStatus.kt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/Core.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/version.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/version.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/util/ByteHelper.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/util/ByteHelper.kt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/util/Emaps.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/util/Emaps.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,20 +36,33 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
-  <component name="RunManager" selected="Application.nul">
+  <component name="RunManager" selected="Application.Example Decoder">
     <configuration default="true" type="JarApplication">
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2" />
     </configuration>
-    <configuration name="Example" type="JetRunConfigurationType">
+    <configuration name="Example Decoder" type="JetRunConfigurationType">
       <module name="FileSpliterator" />
       <option name="VM_PARAMETERS" value="" />
-      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="decode $PROJECT_DIR$/run/filesplit-giao.ywlib" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PASS_PARENT_ENVS" value="true" />
       <option name="MAIN_CLASS_NAME" value="io.github.teddyxlandlee.nios.filesplit.MainKt" />
-      <option name="WORKING_DIRECTORY" value="" />
+      <option name="WORKING_DIRECTORY" value="file://run/" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Example Encoder" type="JetRunConfigurationType">
+      <module name="FileSpliterator" />
+      <option name="VM_PARAMETERS" value="" />
+      <option name="PROGRAM_PARAMETERS" value="encode $PROJECT_DIR$/run/giao.ywlib --size 64 " />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="io.github.teddyxlandlee.nios.filesplit.MainKt" />
+      <option name="WORKING_DIRECTORY" value="file://run/" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -120,7 +129,8 @@
     </configuration>
     <list>
       <item itemvalue="Application.nul" />
-      <item itemvalue="Application.Example" />
+      <item itemvalue="Application.Example Encoder" />
+      <item itemvalue="Application.Example Decoder" />
     </list>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -132,6 +142,14 @@
       <option name="presentableId" value="Default" />
       <updated>1608877305551</updated>
     </task>
+    <task id="LOCAL-00001" summary="? 0.1.0">
+      <created>1608963131809</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1608963131810</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -145,5 +163,9 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="? 0.1.0" />
+    <option name="LAST_COMMIT_MESSAGE" value="? 0.1.0" />
   </component>
 </project>

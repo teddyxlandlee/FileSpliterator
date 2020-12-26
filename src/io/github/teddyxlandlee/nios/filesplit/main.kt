@@ -7,8 +7,8 @@ import kotlin.system.exitProcess
 /**
  * @param args [0] encode/decode
  * @param args [1] filename
- * @param args [2] max one file size, string
- * @param args [3] directory
+ * @param args --size max one file size, string
+ * @param args --output directory
  */
 fun main(args: Array<String>) {
     if (args.size < 2)

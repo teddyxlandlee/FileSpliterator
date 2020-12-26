@@ -20,7 +20,7 @@ public class Core {
 
     public static void encode(File file, int maxOneFileSize, String outputDirectory) {
         File outputDirectoryFile = new File(outputDirectory);
-        if (file.exists() || !outputDirectoryFile.mkdir()) {
+        if (outputDirectoryFile.exists() || !outputDirectoryFile.mkdir()) {
             encode(file, maxOneFileSize, outputDirectory + "_");
             return;
         }
@@ -28,12 +28,11 @@ public class Core {
         int i = 0;
         FileOutputStream fileOutputStream;
         try {
-            byte[] bytes = new byte[maxOneFileSize - 4];
+            byte[] bytes;
             FileInputStream inputStream = new FileInputStream(file);
             while (true) {
-                int byteCount = inputStream.read(bytes, 0, maxOneFileSize - 4);
-                if (byteCount < 0)
-                    break;
+                bytes = inputStream.readNBytes(maxOneFileSize - 4);
+                if (bytes.length == 0) break;
 
                 File outputOneFile = new File(outputDirectory + '/' + i + ".fsplit");
                 if (!outputOneFile.createNewFile()) {
@@ -103,7 +102,12 @@ public class Core {
             FileOutputStream outputStream = new FileOutputStream(newFile);
 
             iCache = 0; // current file name count
-            for (; iCache < maxFilenameCount; ++iCache) {
+            for (int iCache2; iCache < maxFilenameCount; ++iCache) {
+                inputStream = new FileInputStream(file.getName() + '/' + iCache + ".fsplit");
+                iCache2 = inputStream.read(cache, 0, 4);
+                if (iCache2 != 4 || toInt(cache) != VersionKt.fsplitHeader) {
+                    throw new InvalidFileException(iCache + ".fsplit", 0x00000002);
+                }
                 cache = inputStream.readAllBytes();
                 outputStream.write(cache);
                 inputStream.close();

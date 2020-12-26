@@ -13,7 +13,7 @@ public class Emaps {
 
     public static Map<Integer, String> errMap = new HashMap<>();
     static {
-        errMap.put(0x00000002, "bad file header for INFO.fsplitinfo");
+        errMap.put(0x00000002, "bad file header");
         errMap.put(0x00000003, "invalid data version: < 1");
         errMap.put(0x00000004, "bad string byte length");
         errMap.put(0x00000005, "invalid or null new filename");
