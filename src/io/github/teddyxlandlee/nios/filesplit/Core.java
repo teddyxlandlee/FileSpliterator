@@ -1,6 +1,7 @@
 package io.github.teddyxlandlee.nios.filesplit;
 
 import io.github.teddyxlandlee.nios.filesplit.util.InvalidFileException;
+import io.github.teddyxlandlee.nios.filesplit.util.NBytesHelper;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,6 +20,7 @@ public class Core {
     }
 
     public static void encode(File file, int maxOneFileSize, String outputDirectory) {
+        System.out.println("Try encoding...");
         File outputDirectoryFile = new File(outputDirectory);
         if (outputDirectoryFile.exists() || !outputDirectoryFile.mkdir()) {
             encode(file, maxOneFileSize, outputDirectory + "_");
@@ -31,7 +33,7 @@ public class Core {
             byte[] bytes;
             FileInputStream inputStream = new FileInputStream(file);
             while (true) {
-                bytes = inputStream.readNBytes(maxOneFileSize - 4);
+                bytes = NBytesHelper.readNBytes(inputStream, maxOneFileSize - 4);
                 if (bytes.length == 0) break;
 
                 File outputOneFile = new File(outputDirectory + '/' + i + ".fsplit");
@@ -62,6 +64,7 @@ public class Core {
     }
 
     public static void decode(File file) {
+        System.out.println("Try decoding...");
         String directoryWithSlash = file.getAbsolutePath() + '/';
         byte[] cache;
         int iCache;

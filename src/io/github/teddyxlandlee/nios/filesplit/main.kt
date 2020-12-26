@@ -83,4 +83,4 @@ fun maxOneFileSize(string: String) : Int {
     }
 }
 
-const val fileSizeDefault = 104228454
+const val fileSizeDefault = 98566144
