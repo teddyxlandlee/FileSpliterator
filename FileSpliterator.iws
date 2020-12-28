@@ -6,14 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e837d0e-f64d-441f-982b-ceea8ceb799a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/util/NBytesHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileSpliterator.ipr" beforeDir="false" afterPath="$PROJECT_DIR$/FileSpliterator.ipr" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FileSpliterator.iws" beforeDir="false" afterPath="$PROJECT_DIR$/FileSpliterator.iws" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/Core.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/main.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/main.kt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/version.kt" beforeDir="false" afterPath="$PROJECT_DIR$/src/io/github/teddyxlandlee/nios/filesplit/version.kt" afterDir="false" />
-    </list>
+    <list default="true" id="2e837d0e-f64d-441f-982b-ceea8ceb799a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,9 +16,9 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Kotlin Enum" />
-        <option value="Kotlin File" />
         <option value="Kotlin Class" />
         <option value="Class" />
+        <option value="Kotlin File" />
       </list>
     </option>
   </component>
@@ -40,6 +33,7 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/FileSpliterator.ipr" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.53956836" />
