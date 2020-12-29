@@ -19,6 +19,7 @@
         <option value="Kotlin Class" />
         <option value="Class" />
         <option value="Kotlin File" />
+        <option value="Kotlin Data Class" />
       </list>
     </option>
   </component>

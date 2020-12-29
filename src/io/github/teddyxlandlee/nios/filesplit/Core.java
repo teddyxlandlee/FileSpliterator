@@ -1,8 +1,6 @@
 package io.github.teddyxlandlee.nios.filesplit;
 
-import io.github.teddyxlandlee.nios.filesplit.util.InvalidFileException;
-import io.github.teddyxlandlee.nios.filesplit.util.NBytesHelper;
-import io.github.teddyxlandlee.nios.filesplit.util.NetworkHelperKt;
+import io.github.teddyxlandlee.nios.filesplit.util.*;
 
 import java.io.*;
 import java.net.MalformedURLException;
@@ -66,35 +64,12 @@ public class Core {
     public static void decode(File file) {
         System.out.println("Try decoding...");
         String directoryWithSlash = file.getAbsolutePath() + '/';
-        byte[] cache;
+        byte[] cache = new byte[4];
         int iCache;
-        int maxFilenameCount;
         try {
             FileInputStream inputStream = new FileInputStream(directoryWithSlash + "INFO.fsplitinfo");
-            cache = new byte[4];
-            iCache = inputStream.read(cache, 0, 4);
-            if (iCache != 4 || toInt(cache) != VersionKt.fsplitinfoHeader)
-                throw new InvalidFileException("INFO.fsplitinfo", 0x00000002);
-
-            iCache = inputStream.read(); // Data Version
-            if (iCache < 1)
-                throw new InvalidFileException("INFO.fsplitinfo", 0x00000003);
-
-            iCache = inputStream.read(cache, 0, 4);
-            if (iCache != 4)
-                throw new InvalidFileException("INFO.fsplitinfo", 0x00000006);
-            maxFilenameCount = toInt(cache);
-
-            iCache = inputStream.read(cache, 0, 4); // cache: encoded byte-string length
-            if (iCache != 4)
-                throw new InvalidFileException("INFO.fsplitinfo", 0x00000004);
-            iCache = toInt(cache);
-            cache = new byte[iCache];
-            iCache = inputStream.read(cache, 0, iCache);
-            if (iCache < 0)
-                throw new InvalidFileException("INFO.fsplitinfo", 0x00000005);
-            inputStream.close();
-            String newFileName = new String(cache, StandardCharsets.UTF_8);
+            Fsplitinfo fsplitinfo = ByteFileExecutorKt.infoFromStream(inputStream);
+            String newFileName = fsplitinfo.getFilename();
             String newFilePath = file.getParent() + '/' + newFileName;
             File newFile = new File(newFilePath);
             if (newFile.exists())
@@ -105,7 +80,7 @@ public class Core {
             FileOutputStream outputStream = new FileOutputStream(newFile);
 
             iCache = 0; // current file name count
-            for (int iCache2; iCache < maxFilenameCount; ++iCache) {
+            for (int iCache2; iCache < fsplitinfo.getMaxFileNameCount(); ++iCache) {
                 inputStream = new FileInputStream(file.getName() + '/' + iCache + ".fsplit");
                 iCache2 = inputStream.read(cache, 0, 4);
                 if (iCache2 != 4 || toInt(cache) != VersionKt.fsplitHeader) {
@@ -125,16 +100,33 @@ public class Core {
         try {
             URL url = new URL(String.format("%s/%s/raw/%s/%s", server, repo, branch, path));
             decodeGit(url);
-        } catch (MalformedURLException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static void decodeGit(URL url) throws MalformedURLException {
+    public static void decodeGit(URL url) throws IOException {
         URL urlInfo = new URL(url.toString() + "/INFO.fsplitinfo");
         //File infoFile = NetworkHelperKt.tmpFileDownloaded(urlInfo);
         InputStream inputStream = NetworkHelperKt.httpInputStream(urlInfo);
+        byte[] cache = new byte[4];
 
-        
+        Fsplitinfo fsplitinfo = ByteFileExecutorKt.infoFromStream(inputStream);
+        String newFilename = fsplitinfo.getFilename();
+        File newFile = new File(newFilename);
+        if (newFile.exists())
+            throw new InvalidFileException(newFilename, 0x00000007);
+        if (!newFile.createNewFile())
+            throw new InvalidFileException(newFilename, 0x00000007);
+
+        FileOutputStream outputStream = new FileOutputStream(newFile);
+
+        int filenameCount = 0;
+        for (int iCache2; filenameCount < fsplitinfo.getMaxFileNameCount(); ++filenameCount) {
+            urlInfo = new URL(url.toString() + '/' + filenameCount + ".fsplit");
+            inputStream = NetworkHelperKt.httpInputStream(urlInfo);
+            iCache2 = inputStream.read(cache, 0, 4);
+            if (iCache2 ! = 4)
+        }
     }
 }
