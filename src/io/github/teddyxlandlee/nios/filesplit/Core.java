@@ -2,6 +2,7 @@ package io.github.teddyxlandlee.nios.filesplit;
 
 import io.github.teddyxlandlee.nios.filesplit.util.InvalidFileException;
 import io.github.teddyxlandlee.nios.filesplit.util.NBytesHelper;
+import io.github.teddyxlandlee.nios.filesplit.util.NetworkHelperKt;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -126,9 +127,15 @@ public class Core {
     public static void decodeGit(String server, String repo, String branch, String path) {
         try {
             URL url = new URL(String.format("%s/%s/raw/%s/%s", server, repo, branch, path));
-
+            decodeGit(url);
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
+    }
+
+    public static void decodeGit(URL url) throws MalformedURLException {
+        URL urlInfo = new URL(url.toString() + "/INFO.fsplitinfo");
+        File infoFile = NetworkHelperKt.tmpFileDownloaded(urlInfo);
+
     }
 }
