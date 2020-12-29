@@ -4,10 +4,7 @@ import io.github.teddyxlandlee.nios.filesplit.util.InvalidFileException;
 import io.github.teddyxlandlee.nios.filesplit.util.NBytesHelper;
 import io.github.teddyxlandlee.nios.filesplit.util.NetworkHelperKt;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
@@ -135,7 +132,9 @@ public class Core {
 
     public static void decodeGit(URL url) throws MalformedURLException {
         URL urlInfo = new URL(url.toString() + "/INFO.fsplitinfo");
-        File infoFile = NetworkHelperKt.tmpFileDownloaded(urlInfo);
+        //File infoFile = NetworkHelperKt.tmpFileDownloaded(urlInfo);
+        InputStream inputStream = NetworkHelperKt.httpInputStream(urlInfo);
 
+        
     }
 }

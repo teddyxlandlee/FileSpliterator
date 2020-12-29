@@ -26,3 +26,11 @@ fun tmpFileDownloaded(url: URL) : File {
     downloadHttpUrl(url = url, save = file)
     return file
 }
+
+fun httpInputStream(url: URL) : InputStream {
+    val conn: URLConnection = url.openConnection()
+    conn.connectTimeout = 3000  // 3s
+    conn.setRequestProperty("User-Agent", "Mozilla/4.0 (compatible; MSIE 5.0; Windows NT; DigExt)")
+
+    return conn.inputStream
+}
