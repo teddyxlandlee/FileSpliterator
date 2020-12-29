@@ -7,8 +7,9 @@ import kotlin.system.exitProcess
 /**
  * @param args [0] encode/decode
  * @param args [1] filename
- * @param args --size max one file size, string
- * @param args --output directory
+ * @param args (encode) --size max one file size, string
+ * @param args (encode) --output directory
+ * @param args (decode) --github|--gitee <repo>:<branch default master>:<path/to/directory>
  */
 fun main(args: Array<String>) {
     if (args.size < 2)
@@ -22,6 +23,8 @@ fun main(args: Array<String>) {
             println("ERROR: ${args[1]} is not a correct ${codecStatus.preFileType}!")
             exitProcess(1)
         }
+        var common: Byte = 0
+        var component = GitRepoComponent("", "", "", "")
         var maxOneFileSize: Int = fileSizeDefault
         var outputDirectory = "filesplit-${file.name}"
         for (i in 0..args.size - 2) {
@@ -30,9 +33,20 @@ fun main(args: Array<String>) {
                     maxOneFileSize = maxOneFileSize(args[i + 1])
                 else if (args[i].equals("--output", true))
                     outputDirectory = args[i + 1]
+                else if (args[i].equals("--github", true)) {
+                    common = 1
+                    component = gitRepo("--github", args[i + 1])
+                } else if (args[i].equals("--gitee", true)) {
+                    common = 2
+                    component = gitRepo("--gitee", args[i + 1])
+                }
             }
         }
-        Core.run(codecStatus, file, maxOneFileSize, outputDirectory)
+        if (common == (0).toByte())
+            Core.run(codecStatus, file, maxOneFileSize, outputDirectory)
+        else if (common == (1).toByte() || common == (2).toByte()) {
+            Core.decodeGit(component.server, component.repo, component.branch, component.path)
+        }
     }
 
 }
@@ -83,4 +97,21 @@ fun maxOneFileSize(string: String) : Int {
     }
 }
 
+fun gitRepo(server: String, con: String) : GitRepoComponent {
+    val server0 = when (server) {
+        "--github" -> "https://github.com"
+        "--gitee" -> "https://gitee.com"
+        else -> throw RuntimeException()
+    }
+
+    val arr: MutableList<String> = con.split(':').toMutableList()
+    if (arr.size != 3)
+        throw RuntimeException()
+    if (arr[1] == "")
+        arr[1] = "master"
+    return GitRepoComponent(server0, arr[0], arr[1], arr[2])
+}
+
 const val fileSizeDefault = 98566144
+
+data class GitRepoComponent(val server: String, val repo: String, val branch: String, val path: String)

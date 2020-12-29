@@ -7,6 +7,8 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
 import static io.github.teddyxlandlee.nios.filesplit.util.ByteHelperKt.*;
@@ -118,6 +120,14 @@ public class Core {
             outputStream.close();
             System.out.println("Successfully decode file at " + newFilePath);
         } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+    public static void decodeGit(String server, String repo, String branch, String path) {
+        try {
+            URL url = new URL(String.format("%s/%s/raw/%s/%s", server, repo, branch, path));
+
+        } catch (MalformedURLException e) {
             e.printStackTrace();
         }
     }
