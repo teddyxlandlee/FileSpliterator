@@ -45,6 +45,9 @@ fun main(args: Array<String>) {
         if (common == (0).toByte())
             Core.run(codecStatus, file, maxOneFileSize, outputDirectory)
         else if (common == (1).toByte() || common == (2).toByte()) {
+            if (codecStatus != CodecStatus.DECODE)
+                throw RuntimeException()
+
             Core.decodeGit(component.server, component.repo, component.branch, component.path)
         }
     }
