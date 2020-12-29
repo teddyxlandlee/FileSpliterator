@@ -3,11 +3,11 @@ package io.github.teddyxlandlee.nios.filesplit;
 import io.github.teddyxlandlee.nios.filesplit.util.*;
 
 import java.io.*;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
 
-import static io.github.teddyxlandlee.nios.filesplit.util.ByteHelperKt.*;
+import static io.github.teddyxlandlee.nios.filesplit.util.ByteHelperKt.fromInt;
+import static io.github.teddyxlandlee.nios.filesplit.util.ByteHelperKt.toInt;
 
 public class Core {
     public static void run(CodecStatus codecStatus, File file, int maxOneFileSize, String outputDirectory) {
@@ -126,7 +126,13 @@ public class Core {
             urlInfo = new URL(url.toString() + '/' + filenameCount + ".fsplit");
             inputStream = NetworkHelperKt.httpInputStream(urlInfo);
             iCache2 = inputStream.read(cache, 0, 4);
-            if (iCache2 ! = 4)
+            if (iCache2 != 4 || toInt(cache) != VersionKt.fsplitHeader)
+                throw new InvalidFileException(iCache2 + ".fsplit", 0x00000002);
+            cache = inputStream.readAllBytes();
+            outputStream.write(cache);
+            inputStream.close();
         }
+        outputStream.close();
+        System.out.println("Successfully decode file at " + newFile.getAbsolutePath());
     }
 }
