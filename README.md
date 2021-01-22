@@ -1,6 +1,7 @@
 # File Spliterator
 #### Powered by teddyxlandlee.
 
+中文介绍详见[这里](https://github.com/teddyxlandlee/FileSpliterator/blob/master/README-zh.md)
 
 ## Usage
  File Spliterator can split files to small parts and put them back in to a big file again.
