@@ -1,3 +1,7 @@
+Site moved: https://github.com/Featurehouse/FileSplit
+
+<!--
+
 # File Spliterator
 #### Powered by teddyxlandlee.
 
@@ -13,10 +17,12 @@
  <!--
 ## Tool tip
   @teddyxlandlee plz write this yourself
--->
+--&rt;
 ## Help
  Try using command `java -jar FileSpliterator-0.1.1.jar` to get help
  
 ## Acknowledgements
 > [teddyxlandlee](https://github.com/teddyxlandlee)  
 > [Rayawa](https://github.com/Rayawa)  
+
+-->
